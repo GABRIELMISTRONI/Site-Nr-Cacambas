@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1600" role="img" aria-labelledby="title desc">
+  <title id="title">Caçamba NR em obra</title>
+  <desc id="desc">Ilustração premium de uma caçamba azul e amarela em uma obra ao fim da tarde.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#0b4fb0"/>
+      <stop offset=".48" stop-color="#073b8e"/>
+      <stop offset="1" stop-color="#031a3a"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" x2="1">
+      <stop offset="0" stop-color="#ffe37a"/>
+      <stop offset=".42" stop-color="#ffc400"/>
+      <stop offset="1" stop-color="#dca400"/>
+    </linearGradient>
+    <linearGradient id="bin" x1=".1" x2=".9" y1=".15" y2="1">
+      <stop offset="0" stop-color="#1464cf"/>
+      <stop offset=".5" stop-color="#0a3d91"/>
+      <stop offset="1" stop-color="#052553"/>
+    </linearGradient>
+    <radialGradient id="glow" cx=".22" cy=".18" r=".72">
+      <stop offset="0" stop-color="#ffc400" stop-opacity=".55"/>
+      <stop offset=".5" stop-color="#ffc400" stop-opacity=".08"/>
+      <stop offset="1" stop-color="#ffc400" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="grain">
+      <feTurbulence type="fractalNoise" baseFrequency=".8" numOctaves="3"/>
+      <feColorMatrix type="saturate" values="0"/>
+      <feComponentTransfer><feFuncA type="table" tableValues="0 .08"/></feComponentTransfer>
+    </filter>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="34" stdDeviation="34" flood-color="#031a3a" flood-opacity=".55"/>
+    </filter>
+  </defs>
+  <rect width="1400" height="1600" fill="url(#sky)"/>
+  <rect width="1400" height="1600" fill="url(#glow)"/>
+  <path d="M0 1160c250-90 420-108 662-58 252 52 434 48 738-70v568H0z" fill="#052553"/>
+  <path d="M0 1242c326-80 590-72 807 26 198 90 376 112 593 34v298H0z" fill="#031a3a"/>
+  <g opacity=".26" stroke="#ffc400" stroke-width="2">
+    <path d="M0 940h1400M0 1012h1400M0 1084h1400M0 1156h1400"/>
+    <path d="M130 820v500M280 760v620M430 860v500M580 720v680M730 780v640M880 830v560M1030 750v650M1180 820v560"/>
+  </g>
+  <g transform="translate(168 600)" filter="url(#shadow)">
+    <ellipse cx="520" cy="660" rx="500" ry="80" fill="#010b19" opacity=".42"/>
+    <path d="M90 120h860l-120 570H210z" fill="url(#bin)" stroke="#ffc400" stroke-width="10" stroke-linejoin="round"/>
+    <path d="M42 116h956l44-74H0z" fill="url(#gold)" stroke="#ffe37a" stroke-width="8" stroke-linejoin="round"/>
+    <path d="M188 152l74 500M392 126v540M598 126v540M805 152l-76 500" stroke="#ffc400" stroke-width="22" stroke-linecap="round" opacity=".95"/>
+    <path d="M144 152h742" stroke="#ffe37a" stroke-width="18" opacity=".35"/>
+    <path d="M158 286h720M132 428h774" stroke="#031a3a" stroke-width="10" opacity=".35"/>
+    <rect x="367" y="330" width="290" height="150" rx="14" fill="#ffc400"/>
+    <text x="512" y="446" text-anchor="middle" font-family="Arial Black, Impact, sans-serif" font-size="108" fill="#073b8e" letter-spacing="10">NR</text>
+    <g fill="#17324c">
+      <path d="M128 68c72-54 126-64 192-18 58-80 158-78 235-10 64-44 160-46 246 32z"/>
+      <circle cx="246" cy="45" r="33"/>
+      <circle cx="682" cy="42" r="28"/>
+    </g>
+  </g>
+  <g transform="translate(90 120)" opacity=".86">
+    <rect x="0" y="0" width="390" height="132" rx="18" fill="#031a3a" opacity=".72"/>
+    <text x="32" y="56" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#ffc400">NR CAÇAMBAS</text>
+    <text x="32" y="98" font-family="Arial, sans-serif" font-size="24" fill="#f7fbff">Bauru e região</text>
+  </g>
+  <rect width="1400" height="1600" filter="url(#grain)" opacity=".55"/>
+</svg>

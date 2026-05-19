@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página não encontrada — NR Caçambas</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#031a3a">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'><rect width='36' height='36' rx='6' fill='%23ffc400'/><path d='M6 14h24l-3 14H9L6 14Z' fill='%23073b8e'/><path d='M4 14h28l1-5H3l1 5Z' fill='%23073b8e' opacity='.7'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;600;700&family=Barlow+Condensed:wght@600;700&display=swap">
+  <link rel="stylesheet" href="static/style.css">
+  <style>
+    /* ── cursor ── */
+    #cursor-dot  { width:8px;height:8px;background:var(--brand);border-radius:50%;position:fixed;top:0;left:0;z-index:9999;pointer-events:none;opacity:0;will-change:transform }
+    #cursor-ring { width:36px;height:36px;border:2px solid rgba(255,196,0,.55);border-radius:50%;position:fixed;top:0;left:0;z-index:9998;pointer-events:none;opacity:0;transition:width .35s var(--ease-spring),height .35s var(--ease-spring),border-color .3s,opacity .3s,background .3s;will-change:transform }
+    #cursor-ring.is-hovering { width:52px;height:52px;border-color:rgba(255,196,0,.9);background:rgba(255,196,0,.07) }
+    #cursor-dot.is-hovering  { opacity:0 }
+    @media(max-width:768px){ #cursor-dot,#cursor-ring{display:none} body{cursor:auto} a,button{cursor:pointer} }
+
+    /* ── layout ── */
+    body { min-height:100vh; display:flex; flex-direction:column; cursor:none; }
+    #nav { position:fixed;top:0;left:0;right:0;z-index:500;padding:1rem 0; background:rgba(3,26,58,.94);backdrop-filter:blur(24px);box-shadow:0 1px 0 var(--line) }
+    .nav-inner { max-width:1200px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;gap:1.5rem }
+    .nav-logo  { display:flex;align-items:center;gap:.6rem;flex-shrink:0;text-decoration:none }
+    .logo-texts{ display:flex;align-items:center;gap:.4rem }
+    .logo-nr   { font-family:var(--font-display);font-size:1.8rem;color:var(--brand);letter-spacing:.04em;line-height:1 }
+    .logo-text { font-family:var(--font-cond);font-size:1rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text) }
+    .nav-home  { margin-left:auto;font-family:var(--font-cond);font-size:.88rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);transition:color .2s }
+    .nav-home:hover { color:var(--brand) }
+
+    /* ── 404 hero ── */
+    .e404-wrap {
+      flex:1;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      padding:8rem 2rem 4rem;
+      position:relative;
+      overflow:hidden;
+    }
+    .e404-bg-grid {
+      position:absolute;inset:0;
+      background-image:linear-gradient(rgba(255,196,0,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,196,0,.05) 1px,transparent 1px);
+      background-size:56px 56px;
+      mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black,transparent);
+      pointer-events:none;
+    }
+    .e404-number {
+      font-family:var(--font-display);
+      font-size:clamp(8rem,22vw,18rem);
+      line-height:.85;
+      color:transparent;
+      -webkit-text-stroke:2px rgba(255,196,0,.25);
+      letter-spacing:.04em;
+      position:relative;
+      user-select:none;
+    }
+    .e404-bucket {
+      position:relative;
+      display:inline-block;
+      margin:0 .08em;
+    }
+    .e404-bucket svg {
+      position:absolute;
+      top:50%;left:50%;
+      transform:translate(-50%,-52%) scale(1);
+      width:clamp(80px,13vw,160px);
+      height:auto;
+      filter:drop-shadow(0 0 24px rgba(255,196,0,.35));
+      animation:bucketFloat 3s ease-in-out infinite;
+    }
+    @keyframes bucketFloat {
+      0%,100% { transform:translate(-50%,-52%) translateY(0) }
+      50%      { transform:translate(-50%,-52%) translateY(-10px) }
+    }
+    .e404-title {
+      font-family:var(--font-display);
+      font-size:clamp(1.8rem,4vw,3rem);
+      letter-spacing:.04em;
+      text-transform:uppercase;
+      color:var(--text);
+      margin-top:1.5rem;
+      margin-bottom:.6rem;
+    }
+    .e404-title span { color:var(--brand) }
+    .e404-sub {
+      font-size:1rem;
+      color:var(--text-muted);
+      max-width:420px;
+      line-height:1.65;
+      margin-bottom:2.5rem;
+    }
+    .e404-actions {
+      display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;
+    }
+    .e404-actions .btn-primary {
+      display:inline-flex;align-items:center;gap:.5rem;
+      font-family:var(--font-cond);font-size:1rem;font-weight:700;
+      letter-spacing:.08em;text-transform:uppercase;
+      background:var(--brand);color:var(--blue);
+      padding:.85rem 1.8rem;border-radius:var(--r);
+      transition:background .2s,transform .2s var(--ease-spring),box-shadow .25s;
+      cursor:pointer;
+    }
+    .e404-actions .btn-primary:hover {
+      background:var(--brand-light);
+      transform:translateY(-2px) scale(1.02);
+      box-shadow:0 8px 28px rgba(255,196,0,.45);
+    }
+    .e404-actions .btn-wpp {
+      display:inline-flex;align-items:center;gap:.5rem;
+      font-family:var(--font-cond);font-size:.95rem;font-weight:700;
+      letter-spacing:.08em;text-transform:uppercase;
+      background:var(--green);color:#fff;
+      padding:.85rem 1.6rem;border-radius:var(--r);
+      transition:background .2s,transform .2s var(--ease-spring),box-shadow .25s;
+    }
+    .e404-actions .btn-wpp:hover {
+      background:#1db954;
+      transform:translateY(-2px);
+      box-shadow:0 8px 24px rgba(37,211,102,.4);
+    }
+
+    /* ── footer mínimo ── */
+    .e404-footer {
+      text-align:center;
+      padding:1.5rem 2rem;
+      font-size:.82rem;
+      color:var(--text-muted);
+      border-top:1px solid var(--line);
+    }
+    .e404-footer a { color:var(--brand); }
+    .e404-footer a:hover { text-decoration:underline; }
+  </style>
+</head>
+<body>
+
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+
+  <!-- Nav mínima -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo" aria-label="NR Caçambas – Início">
+        <div class="logo-texts">
+          <span class="logo-nr">NR</span>
+          <span class="logo-text">Caçambas</span>
+        </div>
+      </a>
+      <a href="/" class="nav-home">← Voltar ao site</a>
+    </div>
+  </nav>
+
+  <!-- Conteúdo 404 -->
+  <main class="e404-wrap" role="main">
+    <div class="e404-bg-grid" aria-hidden="true"></div>
+
+    <div class="e404-number" aria-label="Erro 404">
+      4
+      <span class="e404-bucket" aria-hidden="true">
+        0
+        <!-- Caçamba SVG inline -->
+        <svg viewBox="0 0 80 72" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- alças -->
+          <rect x="18" y="4" width="6" height="14" rx="3" fill="#ffc400" opacity=".7"/>
+          <rect x="56" y="4" width="6" height="14" rx="3" fill="#ffc400" opacity=".7"/>
+          <!-- corpo -->
+          <path d="M12 18 L68 18 L60 66 H20 Z" fill="#073b8e"/>
+          <!-- borda topo -->
+          <rect x="8" y="14" width="64" height="8" rx="4" fill="#1259c7"/>
+          <!-- faixa amarela -->
+          <path d="M22 36 L58 36 L56 48 L24 48 Z" fill="#ffc400" opacity=".18"/>
+          <!-- logo NR -->
+          <text x="40" y="52" font-family="'Bebas Neue', sans-serif" font-size="18" fill="#ffc400" text-anchor="middle" letter-spacing="2">NR</text>
+          <!-- rodas -->
+          <circle cx="26" cy="68" r="5" fill="#0a3d85" stroke="#ffc400" stroke-width="1.5"/>
+          <circle cx="54" cy="68" r="5" fill="#0a3d85" stroke="#ffc400" stroke-width="1.5"/>
+        </svg>
+      </span>
+      4
+    </div>
+
+    <h1 class="e404-title">Página <span>não encontrada</span></h1>
+    <p class="e404-sub">Parece que essa página foi embora com o entulho. Mas a NR Caçambas está aqui para ajudar — volte ao início ou fale com a gente.</p>
+
+    <div class="e404-actions">
+      <a href="/" class="btn-primary">
+        <svg viewBox="0 0 24 24" width="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12L12 3l9 9"/><path d="M9 21V12h6v9"/></svg>
+        Ir para o início
+      </a>
+      <a href="https://wa.me/551432324222?text=Ol%C3%A1%2C%20NR%20Ca%C3%A7ambas!" target="_blank" rel="noopener noreferrer" class="btn-wpp">
+        <svg viewBox="0 0 24 24" width="18" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.553 4.116 1.522 5.847L0 24l6.335-1.507A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.79 9.79 0 01-5.001-1.374l-.359-.213-3.754.893.952-3.648-.234-.374A9.772 9.772 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+        Falar no WhatsApp
+      </a>
+    </div>
+  </main>
+
+  <footer class="e404-footer">
+    <p>© 2025 NR Caçambas · <a href="tel:+551432324222">(14) 3232-4222</a> · <a href="mailto:contato@nrcacambas.com.br">contato@nrcacambas.com.br</a></p>
+  </footer>
+
+  <script>
+  // Cursor idêntico ao corrigido no main.js
+  (function() {
+    if (window.matchMedia('(max-width:768px)').matches) return;
+    if (window.matchMedia('(pointer:coarse)').matches) return;
+    var dot  = document.getElementById('cursor-dot');
+    var ring = document.getElementById('cursor-ring');
+    if (!dot || !ring) return;
+    var mx=0,my=0,rx=0,ry=0,rafId=null,visible=false;
+    var ringHalf=18;
+    function moveDot(x,y)  { dot.style.transform ='translate('+(x-4)+'px,'+(y-4)+'px)'; }
+    function moveRing(x,y) { ring.style.transform='translate('+(x-ringHalf)+'px,'+(y-ringHalf)+'px)'; }
+    document.addEventListener('mousemove',function(e){
+      mx=e.clientX;my=e.clientY;
+      moveDot(mx,my);
+      if(!visible){visible=true;rx=mx;ry=my;moveRing(rx,ry);dot.style.opacity='1';ring.style.opacity='1';}
+      if(!rafId) rafId=requestAnimationFrame(tick);
+    },{passive:true});
+    function tick(){
+      rafId=null;
+      rx+=(mx-rx)*0.13;ry+=(my-ry)*0.13;
+      moveRing(rx,ry);
+      if(Math.abs(mx-rx)>0.3||Math.abs(my-ry)>0.3) rafId=requestAnimationFrame(tick);
+    }
+    document.querySelectorAll('a,button').forEach(function(el){
+      el.addEventListener('mouseenter',function(){ring.classList.add('is-hovering');dot.style.opacity='0';},{passive:true});
+      el.addEventListener('mouseleave',function(){ring.classList.remove('is-hovering');dot.style.opacity=visible?'1':'0';},{passive:true});
+    });
+    document.addEventListener('mouseleave',function(){dot.style.opacity='0';ring.style.opacity='0';});
+    document.addEventListener('mouseenter',function(){if(visible){dot.style.opacity='1';ring.style.opacity='1';}});
+  })();
+  </script>
+</body>
+</html>

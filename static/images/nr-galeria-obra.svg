@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 760" role="img" aria-labelledby="title desc">
+  <title id="title">Caçamba para obra</title>
+  <desc id="desc">Caçamba azul e amarela em canteiro de construção.</desc>
+  <defs><linearGradient id="b" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#1259c7"/><stop offset="1" stop-color="#031a3a"/></linearGradient><linearGradient id="g" x1="0" x2="1"><stop stop-color="#ffe37a"/><stop offset="1" stop-color="#ffc400"/></linearGradient></defs>
+  <rect width="1100" height="760" fill="url(#b)"/>
+  <path d="M0 530c210-100 390-92 580-20 178 68 340 80 520 0v250H0z" fill="#031a3a"/>
+  <g opacity=".22" stroke="#ffc400" stroke-width="3"><path d="M80 90v380M250 70v440M420 110v350M900 80v430"/><path d="M40 178h980M20 286h1050M0 394h1100"/></g>
+  <g transform="translate(155 300)">
+    <ellipse cx="405" cy="305" rx="410" ry="58" fill="#010b19" opacity=".35"/>
+    <path d="M60 70h720l-90 330H150z" fill="#0a3d91" stroke="#ffc400" stroke-width="9"/>
+    <path d="M24 70h796l34-58H0z" fill="url(#g)" stroke="#ffe37a" stroke-width="5"/>
+    <path d="M170 92l42 284M326 80v305M482 80v305M640 92l-42 284" stroke="#ffc400" stroke-width="18" stroke-linecap="round"/>
+    <text x="405" y="268" text-anchor="middle" font-family="Arial Black, Impact, sans-serif" font-size="104" fill="#ffc400">NR</text>
+  </g>
+</svg>

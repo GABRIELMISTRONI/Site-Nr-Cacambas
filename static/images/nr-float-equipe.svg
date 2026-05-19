@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 650" role="img" aria-labelledby="title desc">
+  <title id="title">Equipe NR em obra</title>
+  <desc id="desc">Ilustração de caminhão e equipe preparando entrega de caçamba.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#0b4fb0"/><stop offset="1" stop-color="#031a3a"/></linearGradient>
+    <linearGradient id="y" x1="0" x2="1"><stop stop-color="#ffe37a"/><stop offset="1" stop-color="#ffc400"/></linearGradient>
+    <filter id="s"><feDropShadow dx="0" dy="22" stdDeviation="22" flood-color="#031a3a" flood-opacity=".45"/></filter>
+  </defs>
+  <rect width="900" height="650" rx="34" fill="url(#bg)"/>
+  <circle cx="742" cy="112" r="170" fill="#ffc400" opacity=".18"/>
+  <path d="M0 462c156-56 270-48 442 10 152 52 310 54 458-36v214H0z" fill="#031a3a"/>
+  <g filter="url(#s)" transform="translate(95 242)">
+    <rect x="0" y="120" width="270" height="106" rx="18" fill="#f7fbff"/>
+    <path d="M270 140h136l70 86H270z" fill="#ffc400"/>
+    <rect x="35" y="54" width="300" height="108" rx="12" fill="#0a3d91"/>
+    <path d="M58 74h250" stroke="#ffc400" stroke-width="12" stroke-linecap="round"/>
+    <circle cx="104" cy="238" r="44" fill="#031a3a"/><circle cx="104" cy="238" r="18" fill="#ffc400"/>
+    <circle cx="392" cy="238" r="44" fill="#031a3a"/><circle cx="392" cy="238" r="18" fill="#ffc400"/>
+  </g>
+  <g transform="translate(430 274)" filter="url(#s)">
+    <path d="M40 38h340l-48 210H88z" fill="#0a3d91" stroke="#ffc400" stroke-width="7"/>
+    <path d="M20 38h380l20-38H0z" fill="url(#y)"/>
+    <path d="M112 58l28 172M210 50v186M305 58l-28 172" stroke="#ffc400" stroke-width="10" stroke-linecap="round"/>
+    <text x="210" y="158" text-anchor="middle" font-family="Arial Black, Impact, sans-serif" font-size="64" fill="#ffc400">NR</text>
+  </g>
+</svg>
